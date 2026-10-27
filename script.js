@@ -15,6 +15,7 @@
   });
 
   cw1.addEventListener("click", function () {
+    answer.innerHTML = "Loading...";
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then((res) => res.json())
       .then((data) => {
@@ -23,7 +24,9 @@
           html += `<li>${row.title} - ${row.body}</li>`;
         });
         html += "</ol>";
-        answer.innerHTML = html;
+        setTimeout(() => {
+          answer.innerHTML = html;
+        }, 500);
       });
   });
 
