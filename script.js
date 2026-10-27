@@ -20,12 +20,11 @@
       .then((data) => {
         let html = "<ol>";
         data.forEach((row) => {
-          html += `<li>${row.id} - ${row.title} - ${row.body}</li>`;
+          html += `<li>${row.title} - ${row.body}</li>`;
         });
+        html += "</ol>";
+        answer.innerHTML = html;
       });
-
-    html += "</ol>";
-    answer.innerHTML = html;
   });
 
   cw2.addEventListener("click", function () {
