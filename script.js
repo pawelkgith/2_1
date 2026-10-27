@@ -15,11 +15,13 @@
   });
 
   cw1.addEventListener("click", function () {
-    let html = "<ol>";
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then((res) => res.json())
       .then((data) => {
-        html += `<li>${data.id} - ${data.title} - ${data.body}`;
+        let html = "<ol>";
+        data.forEach((row) => {
+          html += `<li>${row.id} - ${row.title} - ${row.body}</li>`;
+        });
       });
 
     html += "</ol>";
