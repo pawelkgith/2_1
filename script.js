@@ -42,6 +42,21 @@
   });
 
   cw3.addEventListener("click", function () {
-    
+    answer.innerHTML = "Processing...";
+    fetch(`https://jsonplaceholder.typicode.com/posts`, {
+      method: "POST",
+      body: JSON.stringify({
+        title: "Nowy tytul",
+        body: "Tresc nowego posta",
+        userId: 1,
+      }),
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        answer.innerHTML = `Dodano nowy post o ID = ${data.id}`;
+      });
   });
 })();
